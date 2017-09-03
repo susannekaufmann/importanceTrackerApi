@@ -115,3 +115,15 @@ router.put('/:id', function(req, res) {
         res.sendStatus(404);
     }
 });
+
+router.delete('/:id', function(req, res) {
+    var taskId = req.params.id;
+    var currentTask = tasks.filter(t => t.taskId === taskId)[0];
+    if (currentTask) {
+        // ok; here we set the memory representation to all tasks minus newly deleted
+        tasks = tasks.filter(t => t.taskId !== taskId);
+        res.sendStatus(204);
+    } else {
+        res.sendStatus(404);
+    }
+});
