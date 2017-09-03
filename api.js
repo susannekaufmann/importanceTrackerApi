@@ -9,20 +9,23 @@ var port = process.env.port || 3000;
 var router = express.Router();
 
 
-app.use('/api/task', router);
+app.use('/api/tasks', router);
 app.listen(port);
 
 /**
  * serves as our database for now.
  */
 var tasks = [{
-    'id': 1,
+    'taskId': 1,
     'task': 'Create ImportanceTracker API',
     'dateAdded': 'September 2, 2017 03:24:00',
     'dateUpdated': 'September 2, 2017 03:24:00',
     'dateDue': 'December 2, 2017 03:24:00',
+    'dateCompleted': 'December 2, 2017 03:24:00',
     'communicationType': 'igotthis',
-    'taskType': 'strategic'
+    'taskType': 'strategic',
+    'ownerId': '1',
+    'entityId': '1'
 }];
 
 /* get all tasks */
@@ -34,7 +37,7 @@ router.get('/', function(req, res) {
 router.get('/:id', function(req, res) {
     var taskId = parseInt(req.params.id);
     /* filter by taskId; and show the first item in response array [0] */
-    var currentTask = tasks.filter(e => e.id === taskId)[0];
+    var currentTask = tasks.filter(e => e.taskId === taskId)[0];
 
     if (currentTask) {
         res.json(currentTask);
