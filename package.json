@@ -1,0 +1,16 @@
+{
+    "name": "importancetrackerapi",
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Rest API for importance tracker data",
+    "author": {
+        "name": "Susanne Kaufmann",
+        "email": "susannekm@gmail.com",
+        "url": "www.importancetracker.com"
+    },
+    "main": "api.js",
+    "dependencies": {
+        "express": "^4.15.4",
+        "body-parser": "^1.17.2"
+    }
+}
