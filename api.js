@@ -83,8 +83,35 @@ router.post('/', function(req, res) {
     var isValid = isValidTask(task);
     if (isValid) {
         tasks.push(task);
+        res.send(task);
     } else {
         // TODO: Come up with a better response here  ok!
         res.sendStatus(500);
+    }
+});
+
+router.put('/:id', function(req, res) {
+    var taskId = req.params.id;
+    var currentTask = tasks.filter(t => t.taskId === taskId)[0];
+    if (currentTask) {
+        let task = req.body;
+        var isValid = isValidTask(task);
+        if (isValid) {
+            currentTask.task = task.task;
+            currentTask.taskType = task.taskType;
+            currentTask.communicationType = task.communicationType;
+            currentTask.dateAdded = task.dateAdded;
+            currentTask.dateCompleted = task.dateCompleted;
+            currentTask.dateDue = task.dateDue;
+            currentTask.dateUpdated = task.dateUpdated;
+            currentTask.entityId = task.entityId;
+            currentTask.ownerId = task.ownerId;
+            res.sendStatus(204);
+        } else {
+            // TODO: Come up with a better response here  ok!            
+            res.sendStatus(500);
+        }
+    } else {
+        res.sendStatus(404);
     }
 });
