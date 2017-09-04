@@ -15,6 +15,8 @@ var router = express.Router();
 app.use('/api/tasks', router);
 app.listen(port);
 
+console.log('Listening on port...' + port);
+
 /**
  * serves as our database for now.
  */
