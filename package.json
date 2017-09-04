@@ -12,5 +12,8 @@
     "dependencies": {
         "express": "^4.15.4",
         "body-parser": "^1.17.2"
+    },
+    "scripts": {
+        "start": "node api.js"
     }
 }
