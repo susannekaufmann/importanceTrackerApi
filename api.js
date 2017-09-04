@@ -8,14 +8,15 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.port || 3000;
+var port = process.env.PORT || 3000;
 var router = express.Router();
 
 
 app.use('/api/tasks', router);
 app.listen(port);
 
-console.log('Listening on port...' + port);
+console.log('Listening to port...' + port);
+
 
 /**
  * serves as our database for now.
