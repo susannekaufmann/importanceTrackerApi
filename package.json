@@ -5,7 +5,7 @@
     "description": "Rest API for importance tracker data",
     "author": {
         "name": "Susanne Kaufmann",
-        "email": "susannekm@gmail.com",
+        "email": "usannekaufmann@users.noreply.github.com",
         "url": "www.importancetracker.com"
     },
     "main": "api.js",
